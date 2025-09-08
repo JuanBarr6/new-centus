@@ -1,3 +1,6 @@
 export default {
-  label:"Hello world"
+  ExampleText: {
+    label:"Hola Mundo",
+    greeting:"¡Hola, bienvenido a Centus!",
+  },
 };
