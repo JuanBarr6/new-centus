@@ -43,7 +43,7 @@
 
   --color-surface-container-low: var(--surface-container-low); /* ✅ añadido */
 
-  --color-hyperlink: var(--hyperlink); /* ✅ añadido */;
+  --color-hyperlink: var(--hyperlink); /* ✅ añadido */
 
   --color-secondary-foreground: var(--secondary-foreground);
   --color-secondary: var(--secondary);
