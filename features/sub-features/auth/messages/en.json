@@ -1,0 +1,9 @@
+{
+  "AuthMessages": {
+    "login": "Login",
+    "logout": "Logout",
+    "signup": "Sign Up",
+    "forgotPassword": "Forgot Password?",
+    "resetPassword": "Reset Password"
+  }
+}
