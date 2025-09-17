@@ -1,9 +1,11 @@
 "use client";
+import * as React from "react";
 import NavSection from "../molecule/nav-sections";
 import {menuSection, negociationSection, alertSection} from "../../utils/constants/nav-section";
 import {Button} from "@/features/components/ui/button";
 import {Plus} from "lucide-react";
 import TitleSection from "../molecule/title-section";
+import DropdownMenuSections from "../molecule/dropdown-menu-sections";
 
 export default function LateralNavBar() {
   return (
@@ -14,24 +16,26 @@ export default function LateralNavBar() {
             <Plus /> crear área
           </Button>
           <section className="flex w-full flex-col gap-4">
-            {menuSection.map(({title}) => (
-              <NavSection key={title} title={title} />
+            {menuSection.map(({Icon, title}) => (
+              <NavSection key={title} Icon={Icon} title={title} />
             ))}
+            <DropdownMenuSections />
           </section>
+
           <hr className="my-2 border-t border-[var(--color-sidebar-ring)]" />
 
           <section className="flex w-full flex-col gap-4">
             <TitleSection title="Negociación" />
-            {negociationSection.map(({title}) => (
-              <NavSection key={title} title={title} />
+            {negociationSection.map(({Icon, title}) => (
+              <NavSection key={title} Icon={Icon} title={title} />
             ))}
           </section>
           <hr className="my-2 border-t border-[var(--color-sidebar-ring)]" />
 
           <section className="flex w-full flex-col gap-4">
             <TitleSection title="Alertas" />
-            {alertSection.map(({title}) => (
-              <NavSection key={title} title={title} />
+            {alertSection.map(({Icon, title}) => (
+              <NavSection key={title} Icon={Icon} title={title} />
             ))}
           </section>
         </section>
