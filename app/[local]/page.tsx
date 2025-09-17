@@ -1,3 +1,4 @@
+import {Button} from "@/features/components/ui/button";
 import {getTranslations} from "next-intl/server";
 
 export default async function Page() {
@@ -8,6 +9,7 @@ export default async function Page() {
         {t("label")} {t("greeting")}
       </p>
       <p>{t("farewell")}</p>
+      <Button variant="secondary">Prueba</Button>
     </>
   );
 }
