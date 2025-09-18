@@ -11,8 +11,11 @@ export default function LateralNavBar() {
   return (
     <>
       <div className="h-full w-[331px] p-6">
-        <section className="scrollbar-none scrollbar flex h-[879px] w-[295px] flex-col items-center gap-2 overflow-y-auto rounded-[8px] border border-[var(--color-sidebar-ring)] bg-[var(--color-on-surface)] p-7 shadow-md">
-          <Button className="m-4 w-full cursor-pointer rounded-[42px] bg-[var(--color-secondary)] text-white uppercase hover:bg-[var(--secondary)]">
+        <section className="scrollbar-none scrollbar flex h-full w-full flex-col items-center gap-2 overflow-y-auto rounded-[8px] bg-[var(--surface)] p-7 shadow-md">
+          <Button
+            variant="secondary"
+            className="m-4 w-full cursor-pointer rounded-[42px] text-white uppercase hover:bg-[var(--secondary)]"
+          >
             <Plus /> crear área
           </Button>
           <section className="flex w-full flex-col gap-4">
@@ -22,7 +25,7 @@ export default function LateralNavBar() {
             <DropdownMenuSections />
           </section>
 
-          <hr className="my-2 border-t border-[var(--color-sidebar-ring)]" />
+          <div className="m-2 mt-2 w-full border border-[var(--outline)]" />
 
           <section className="flex w-full flex-col gap-4">
             <TitleSection title="Negociación" />
@@ -30,7 +33,8 @@ export default function LateralNavBar() {
               <NavSection key={title} Icon={Icon} title={title} />
             ))}
           </section>
-          <hr className="my-2 border-t border-[var(--color-sidebar-ring)]" />
+
+          <div className="m-2 mt-2 w-full border border-[var(--outline)]" />
 
           <section className="flex w-full flex-col gap-4">
             <TitleSection title="Alertas" />
