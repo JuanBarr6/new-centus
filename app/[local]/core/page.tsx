@@ -1,3 +1,7 @@
-export default function Core() {
-  return <h1>Core Page</h1>;
-}
+import React from "react";
+
+const Core = () => {
+  return <div className="bg-[var(--background)]">Core Page</div>;
+};
+
+export default Core;
