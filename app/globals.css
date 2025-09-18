@@ -99,7 +99,7 @@
    --------------------------- */
 
 :root {
-  --background: oklch(0.989 0.004 307.61); /* #FDF7FF */
+  --background: oklch(oklch(1 0 0)); /* ##FFFFFF */
   --foreground: oklch(0.222 0.006 285.94); /* #1C1B20 */
 
   /* card / popover (se usan en @theme) */
@@ -137,14 +137,14 @@
   --on-error-container: oklch(0.36 0.073 25.72); /* #73332D */
 
   /* Surface / on-surface */
-  --surface: oklch(0.989 0.004 307.61); /* #FDF7FF */
+  --surface: oklch(0.992 0.0058 333.98); /* #FFFBFE */
   --on-surface: oklch(0.222 0.006 285.94); /* #1C1B20 */
 
   --surface-variant: oklch(0.901 0.009 304.35); /* #E6E0EC */
   --on-surface-variant: oklch(0.319 0.014 303.83); /* #48454E */
 
   /* Outline */
-  --outline: oklch(0.592 0.019 305.49); /* #79757F */
+  --outline: oklch(0.8287 0.0178 308.22); /* #CAC4D0 */
   --outline-var: oklch(0.824 0.01 305.06); /* #CAC4CF */
 
   --shadow: oklch(0 0 0); /* #000000 */
