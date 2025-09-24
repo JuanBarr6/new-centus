@@ -9,19 +9,19 @@ const DropdownMenuSections = () => {
     <Accordion.Root type="single" collapsible className="w-full">
       <Accordion.Item value="usuarios">
         <Accordion.Trigger className="flex w-full items-center justify-between rounded-md bg-[var(--surface)] p-2 hover:bg-gray-200">
-          <div className="flex flex-row gap-3">
-            <Users /> Usuarios
+          <div className="text-font-title flex flex-row gap-3 font-medium">
+            <Users className="text-primary" /> Usuarios
           </div>
-          <ChevronDown className="transition-transform data-[state=open]:rotate-180" />
+          <ChevronDown className="text-primary transition-transform data-[state=open]:rotate-180" />
         </Accordion.Trigger>
 
-        <Accordion.Content className="mt-2 flex flex-col gap-2">
+        <Accordion.Content className="mt-2 flex flex-col gap-2 px-3">
           {DropdownSection.map(({Icon, title, value}) => (
             <button
               key={value}
-              className="flex items-center gap-2 rounded-md p-2 hover:bg-gray-200"
+              className="text-font-title flex items-center gap-2 rounded-md p-2 hover:bg-gray-200"
             >
-              <Icon className="h-4 w-4" />
+              <Icon className="text-primary h-4 w-4" />
               {title}
             </button>
           ))}
