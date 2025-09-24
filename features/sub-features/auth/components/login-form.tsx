@@ -1,88 +1,69 @@
 "use client";
 
-import {useForm, ControllerRenderProps} from "react-hook-form";
-import {zodResolver} from "@hookform/resolvers/zod";
-import * as z from "zod";
-import {
-  Form,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormControl,
-  FormMessage,
-} from "@/features/components/ui/form";
+import {useState} from "react";
 import {Input} from "@/features/components/ui/input";
 import {Button} from "@/features/components/ui/button";
-import {useTranslations} from "next-intl";
+import {Card, CardContent, CardHeader} from "@/features/components/ui/card";
 
-const formSchema = z.object({
-  email: z
-    .string()
-    .min(2, {message: "El email es requerido"})
-    .max(50, {message: "El email es muy largo"})
-    .email({message: "El email no es válido"}),
-  password: z
-    .string()
-    .min(6, {message: "La contraseña debe tener al menos 6 caracteres"})
-    .max(50, {message: "La contraseña es muy larga"}),
-});
-
-export default function LoginForm() {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      email: "",
-      password: "",
-    },
-  });
-
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-  }
+export default function LoginPage() {
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <FormField
-          control={form.control}
-          name="email"
-          render={({
-            field,
-          }: {
-            field: ControllerRenderProps<z.infer<typeof formSchema>, "email">;
-          }) => (
-            <FormItem>
-              <FormLabel>Email</FormLabel>
-              <FormControl>
-                <Input type="email" placeholder="tu@email.com" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+    <div className="flex min-h-screen items-center justify-center bg-white">
+      <Card className="flex aspect-[2/1] w-full max-w-2xl flex-col justify-center rounded-xl border-0 bg-white p-10 shadow-lg">
+        <CardHeader className="flex flex-col items-center space-y-4">
+          <div className="flex items-center gap-2">
+            <img src="/Logo.svg" alt="CENTUS Logo" className="h-16 w-auto" />
+          </div>
+          <div className="text-center">
+            <h2 className="text-3xl font-bold text-gray-900">Iniciar sesión</h2>
+            <p className="text-sm text-gray-600">Centraliza tus actividades en Centus</p>
+          </div>
+        </CardHeader>
 
-        <FormField
-          control={form.control}
-          name="password"
-          render={({
-            field,
-          }: {
-            field: ControllerRenderProps<z.infer<typeof formSchema>, "password">;
-          }) => (
-            <FormItem>
-              <FormLabel>Contraseña</FormLabel>
-              <FormControl>
-                <Input type="password" placeholder="********" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+        <CardContent className="mx-auto w-full max-w-md space-y-6">
+          <div className="flex flex-col space-y-1">
+            <label htmlFor="email" className="text-sm font-medium text-gray-700">
+              Correo
+            </label>
+            <div className="relative">
+              <Input id="email" type="email" placeholder="ejemplo@correo.com" className="pr-30" />
+              <img
+                src="/Correo.svg"
+                alt="Icono correo"
+                className="absolute top-1/2 right-3 h-5 w-5 -translate-y-1/2 text-gray-500"
+              />
+            </div>
+          </div>
 
-        <Button type="submit" className="w-full">
-          Iniciar sesión
-        </Button>
-      </form>
-    </Form>
+          <div className="flex flex-col space-y-1">
+            <label htmlFor="password" className="text-sm font-medium text-gray-700">
+              Contraseña
+            </label>
+            <div className="relative">
+              <Input
+                id="password"
+                type={showPassword ? "text" : "password"}
+                placeholder="••••••••"
+                className="pr-10"
+              />
+              <img
+                src="/Contraseña.svg"
+                alt="Icono contraseña"
+                className="absolute top-1/2 right-3 h-5 w-5 -translate-y-1/2 cursor-pointer text-gray-500"
+                onClick={() => setShowPassword(!showPassword)}
+              />
+            </div>
+          </div>
+
+          <Button
+            className="w-full rounded-full py-3 text-lg font-semibold text-white"
+            style={{backgroundColor: "var(--secondary)"}}
+          >
+            INICIAR SESIÓN
+          </Button>
+        </CardContent>
+      </Card>
+    </div>
   );
 }
