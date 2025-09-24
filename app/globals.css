@@ -45,7 +45,7 @@
 
   --color-hyperlink: var(--hyperlink); /* ✅ */
 
-  --color-secondary-foreground: var(--secondary-foreground);
+  --color-font-title: var(--font-title) --color-secondary-foreground: var(--secondary-foreground);
   --color-secondary: var(--secondary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
@@ -91,6 +91,8 @@
       background-position: 100% 50%;
     }
   }
+
+  --color-administrativo-gradient-g2: var(--administrativo-gradient-g2);
 }
 
 /* ---------------------------
@@ -109,7 +111,7 @@
   --popover-foreground: oklch(0.222 0.006 285.94); /* #1C1B20 */
 
   /* Primary */
-  --primary: oklch(0.579 0.162 302.44); /* #64558F */
+  --primary: oklch(0.5049 0.1988 290.28); /* #6943CB */
   --primary-foreground: oklch(1 0 0); /* #FFFFFF (sinónimo) */
   --on-primary: oklch(1 0 0); /* #FFFFFF (sinónimo) */
   --primary-container: oklch(0.942 0.032 303.51); /* #E8DDFF */
@@ -200,9 +202,15 @@
   --sidebar-ring: oklch(0.556 0 0);
 
   --hyperlink: oklch(0.7282 0.2092 248.44); /* #1E9AFF */
+  --font-title: oklch(0.2738 0.0978 312.07); /* #371449 */
 
   /* radio base si usas --radius en tu layout */
   --radius: 12px;
+  --administrativo-gradient-g2: linear-gradient(
+    83deg,
+    oklch(0.395 0.2053 287.45) 0.1%,
+    oklch(0.6007 0.223 339.56) 99.92%
+  ); /* #5C3ACD - #AE0B8E */
 }
 
 @layer base {
