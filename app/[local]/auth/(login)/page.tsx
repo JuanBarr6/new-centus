@@ -5,10 +5,9 @@ export default async function AuthPage() {
   const t = await getTranslations("AuthMessages");
 
   return (
-    <div>
-      <h1>{t("login")}</h1>
+    <>
+      <h1 className="sr-only">{t("login")}</h1>
       <LoginForm />
-    </div>
+    </>
   );
 }
-
