@@ -36,8 +36,11 @@ export default function SecurityCodePage() {
  
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-white px-4">
-     
-      <h1 className="text-3xl font-bold text-purple-600 mb-2">CENTUS</h1>
+      <div className="flex items-center gap-2">
+            <img src="/Logo.svg" alt="CENTUS Logo" className="h-16 w-auto" />
+          </div>
+      
+      
  
       <h2 className="text-xl font-semibold text-gray-800 mb-1">Código de seguridad</h2>
       <p className="text-sm text-gray-500 mb-6 text-center">

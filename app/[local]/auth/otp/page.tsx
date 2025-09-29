@@ -1,17 +1,36 @@
+import Image from "next/image";
 import SecurityCodeForm from "@/features/sub-features/auth/components/otp-form";
- 
+
 export default function SecurityPage() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-white px-4"> 
-     
-      <SecurityCodeForm />
- 
-      <div className="mt-4 text-sm">
-        <span className="text-gray-500">¿Aún no recibes el código? </span>
-        <button className="text-purple-600 hover:underline">Reenviar ahora</button>
+    <div className="flex min-h-screen items-center justify-center bg-gray-100 px-6">
+      {/* Card principal */}
+      <div className="grid w-full max-w-6xl grid-cols-1 md:grid-cols-2 rounded-3xl shadow-lg overflow-hidden bg-white">
+        
+        {/* Columna izquierda: Formulario */}
+        <div className="flex flex-col justify-center px-10 py-12">
+          <SecurityCodeForm />
+
+          <div className="mt-4 text-sm">
+            <span className="text-gray-500">¿Aún no recibes el código?</span>
+            <button className="text-purple-600 hover:underline ml-1">
+              Reenviar ahora
+            </button>
+          </div>
+        </div>
+
+        {/* Columna derecha: Imagen completa OTP */}
+        <div className="flex items-center justify-center bg-white">
+          <Image
+            src="/Fondo_otp.svg"
+            alt="Fondo OTP"
+            width={600}   // Ajusta según tu diseño
+            height={600}  // Ajusta según tu diseño
+            className="object-contain"
+            priority
+          />
+        </div>
       </div>
     </div>
   );
 }
- 
- 
