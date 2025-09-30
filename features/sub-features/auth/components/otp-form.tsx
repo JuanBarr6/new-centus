@@ -83,8 +83,10 @@ export default function SecurityCodePage() {
               </FormItem>
             )}
           />
- 
-          <Button type="submit" className="w-full bg-purple-600 hover:bg-purple-700">
+          <Button
+            className="w-20 rounded-full py-1 text-sm font-semibold text-white"
+            style={{backgroundColor: "var(--secondary)"}}
+          >
             VALIDAR
           </Button>
         </form>
