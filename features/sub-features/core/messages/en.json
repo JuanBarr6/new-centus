@@ -1,0 +1,14 @@
+{
+  "CoreMessages": {
+    "Settings": "Settings",
+    "Modules": "Modules",
+    "Negotiations": "Negotiations",
+    "Integrations": "Integrations",
+    "Notifications": "Notifications",
+    "User": "User",
+    "Areas": "Areas",
+    "Roles": "Roles",
+    "Managers": "Managers",
+    "CreateArea": "Create area"
+  }
+}
