@@ -3,14 +3,16 @@ import * as React from "react";
 import * as Accordion from "@radix-ui/react-accordion";
 import {ChevronDown, Users} from "lucide-react";
 import {DropdownSection} from "../../utils/constants/nav-section";
+import {useTranslations} from "next-intl";
 
 const DropdownMenuSections = () => {
+  const t = useTranslations("CoreMessages");
   return (
     <Accordion.Root type="single" collapsible className="w-full">
       <Accordion.Item value="usuarios">
         <Accordion.Trigger className="flex w-full items-center justify-between rounded-md bg-[var(--surface)] p-2 hover:bg-gray-200">
           <div className="text-font-title flex flex-row gap-3 font-medium">
-            <Users className="text-primary" /> Usuarios
+            <Users className="text-primary" /> {t("User")}
           </div>
           <ChevronDown className="text-primary transition-transform data-[state=open]:rotate-180" />
         </Accordion.Trigger>
