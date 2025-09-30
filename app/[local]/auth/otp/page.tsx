@@ -8,13 +8,6 @@ export default function SecurityPage() {
       {/* Columna izquierda: Formulario */}
       <div className="flex flex-col justify-center px-10 py-12">
         <SecurityCodeForm />
-
-        <div className="mt-4 text-sm">
-          <span className="text-gray-500">¿Aún no recibes el código?</span>
-          <button className="text-purple-600 hover:underline ml-1">
-            Reenviar ahora
-          </button>
-        </div>
       </div>
 
       {/* Columna derecha: Imagen completa OTP */}
