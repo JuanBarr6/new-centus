@@ -12,34 +12,34 @@ import {
 export const menuSection = [
   {
     Icon: Wrench,
-    title: "Configuraciones",
+    title: "Settings",
   },
   {
     Icon: Boxes,
-    title: "Modulos",
+    title: "Modules",
   },
 ];
 export const negociationSection = [
   {
     Icon: UserRoundCheck,
-    title: "Negociaciones",
+    title: "Negotiations",
   },
   {
     Icon: MessageSquareCode,
-    title: "Integraciones",
+    title: "Integrations",
   },
 ];
 export const alertSection = [
   {
     Icon: Bell,
-    title: "Notificaciones",
+    title: "Notifications",
   },
 ];
 
 export const DropdownSection = [
   {
     Icon: GitFork,
-    title: "Áreas",
+    title: "Areas",
     value: "areas",
   },
   {
@@ -49,7 +49,7 @@ export const DropdownSection = [
   },
   {
     Icon: Users,
-    title: "Gestores",
+    title: "Managers",
     value: "gestores",
   },
 ];
