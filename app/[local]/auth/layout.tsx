@@ -4,7 +4,7 @@ interface AuthLayoutProps {
 
 export default function AuthLayout({ children }: AuthLayoutProps) {
   return (
-    <div className="w-full min-h-screen bg-white flex items-center justify-center">
+    <div className="w-full min-h-screen bg-white overflow-x-hidden">
       {children}
     </div>
   );
