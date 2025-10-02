@@ -17,13 +17,15 @@ import {
 } from "@/features/components/ui/form";
 
 import { XCircle, X } from "lucide-react";
+import Image from "next/image";
 
+// ✅ Esquema de validación
 const formSchema = z.object({
   code: z.string().min(4, { message: "El código debe tener mínimo 4 caracteres" }),
   email: z.string().email("Correo inválido"),
 });
 
-export default function SecurityCodePage() {
+export default function OTPForm() {
   const [showError, setShowError] = useState(true);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -46,83 +48,102 @@ export default function SecurityCodePage() {
     "";
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-white px-4">
-      {/* Logo */}
-      <div className="flex items-center gap-2">
-        <img src="/Logo.svg" alt="CENTUS Logo" className="h-16 w-auto" />
-      </div>
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-purple-100 to-pink-100 px-4 overflow-x-hidden">
+      {/* Card principal */}
+      <div className="flex w-full max-w-6xl flex-col md:flex-row rounded-3xl shadow-lg overflow-hidden bg-white">
+        
+        {/* Columna izquierda: Formulario */}
+        <div className="flex flex-1 flex-col justify-center px-6 md:px-10 py-12">
+          {/* Logo */}
+          <div className="flex items-center gap-2 mb-6">
+            <img src="/Logo.svg" alt="CENTUS Logo" className="h-16 w-auto" />
+          </div>
 
-      {/* Título */}
-      <h2 className="mb-1 text-xl font-semibold text-gray-800">Código de seguridad</h2>
-      <p className="mb-6 text-center text-sm text-gray-500">
-        Código enviado al correo electrónico. Recuerda revisar la carpeta de correos no deseados o spam
-      </p>
+          {/* Título */}
+          <h2 className="mb-1 text-xl font-semibold text-gray-800">Código de seguridad</h2>
+          <p className="mb-6 text-sm text-gray-500">
+            Código enviado al correo electrónico. Recuerda revisar la carpeta de correos no deseados o spam
+          </p>
 
-      {/* Formulario */}
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="w-full max-w-sm space-y-4">
-          <FormField
-            control={form.control}
-            name="code"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Ingresa aquí el código recibido</FormLabel>
-                <FormControl>
-                  <Input placeholder="Ej: 123456" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          {/* Formulario */}
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="w-full max-w-sm space-y-4">
+              <FormField
+                control={form.control}
+                name="code"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Ingresa aquí el código recibido</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Ej: 123456" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Correo</FormLabel>
-                <FormControl>
-                  <Input type="email" placeholder="usuario@ejemplo.com" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Correo</FormLabel>
+                    <FormControl>
+                      <Input type="email" placeholder="usuario@ejemplo.com" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
-          <Button
-            type="submit"
-            className="w-20 rounded-full py-1 text-sm font-semibold text-white"
-            style={{ backgroundColor: "var(--secondary)" }}
-          >
-            VALIDAR
-          </Button>
-        </form>
-      </Form>
+              <Button
+                type="submit"
+                className="w-20 rounded-full py-1 text-sm font-semibold text-white"
+                style={{ backgroundColor: "var(--secondary)" }}
+              >
+                VALIDAR
+              </Button>
+            </form>
+          </Form>
 
-      {/* ✅ Bloque de error como el del profe */}
-      {firstError && showError && (
-        <div className="mt-6 w-full max-w-sm rounded-md border border-red-500 bg-red-50 p-4 text-sm text-red-700 relative">
-          <div className="flex items-start gap-3">
-            <XCircle className="h-5 w-5 text-red-500 mt-0.5" />
-            <div className="flex-1">
-              <p className="font-semibold">Error Message</p>
-              <p>{firstError}</p>
+          {/* ✅ Bloque de error como el del profe */}
+          {firstError && showError && (
+            <div className="mt-6 w-full max-w-sm rounded-md border border-red-500 bg-red-50 p-4 text-sm text-red-700 relative">
+              <div className="flex items-start gap-3">
+                <XCircle className="h-5 w-5 text-red-500 mt-0.5" />
+                <div className="flex-1">
+                  <p className="font-semibold">Error Message</p>
+                  <p>{firstError}</p>
+                </div>
+                <button
+                  type="button"
+                  className="absolute top-3 right-3 text-red-500 hover:text-red-700"
+                  onClick={() => setShowError(false)}
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              </div>
             </div>
-            <button
-              type="button"
-              className="absolute top-3 right-3 text-red-500 hover:text-red-700"
-              onClick={() => setShowError(false)}
-            >
-              <X className="h-4 w-4" />
-            </button>
+          )}
+
+          {/* Link reenviar */}
+          <div className="mt-4 text-sm">
+            <span className="text-gray-500">¿Aún no recibes el código? </span>
+            <button className="text-purple-600 hover:underline">Reenviar ahora</button>
           </div>
         </div>
-      )}
 
-      {/* Link reenviar */}
-      <div className="mt-4 text-sm">
-        <span className="text-gray-500">¿Aún no recibes el código? </span>
-        <button className="text-purple-600 hover:underline">Reenviar ahora</button>
+        {/* Columna derecha: Imagen OTP */}
+        <div className="flex flex-1 items-center justify-center bg-white">
+          <Image
+            src="/Fondo_otp.svg"
+            alt="Fondo OTP"
+            width={500}
+            height={500}
+            className="object-contain max-w-full h-auto"
+            priority
+          />
+        </div>
       </div>
     </div>
   );
