@@ -115,7 +115,7 @@
   --primary-foreground: oklch(1 0 0); /* #FFFFFF (sinónimo) */
   --on-primary: oklch(1 0 0); /* #FFFFFF (sinónimo) */
   --primary-container: oklch(0.942 0.032 303.51); /* #E8DDFF */
-  --on-primary-container: oklch(0.325 0.06 303.13); /* #4C3E76 */
+  --on-primary-container: oklch(0.2435 0.1427 284.57); /* #4C3E76 */
 
   /* Secondary */
   --secondary: oklch(0.5112 0.2178 339.13); /* #AE0B8E */
