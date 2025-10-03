@@ -1,3 +1,4 @@
+import {Bell} from "lucide-react";
 import {ReactNode} from "react";
 
 interface HeaderCoreProps {
@@ -21,7 +22,13 @@ export default function HeaderCore({title, description, actions}: HeaderCoreProp
         {description && <p className="text-sm opacity-90">{description}</p>}
       </div>
 
-      {actions && <div className="flex items-center gap-3">{actions}</div>}
+      <div className="flex items-center gap-3">
+        <button className="rounded-full bg-white/20 p-2 hover:bg-white/30">
+          <Switch id="airplane-mode" />
+          <Bell size={18} />
+        </button>
+        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/30">L1</div>
+      </div>
     </header>
   );
 }
