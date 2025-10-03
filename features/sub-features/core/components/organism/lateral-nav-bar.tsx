@@ -2,23 +2,26 @@ import * as React from "react";
 import NavSection from "../molecule/nav-sections";
 import {menuSection, negociationSection, alertSection} from "../../utils/constants/nav-section";
 import {Button} from "@/features/components/ui/button";
-import {Plus} from "lucide-react";
+import {Plus, ArrowLeft} from "lucide-react";
 import TitleSection from "../molecule/title-section";
 import DropdownMenuSections from "../molecule/dropdown-menu-sections";
 import {useTranslations} from "next-intl";
+import Image from "next/image";
 
 export default function LateralNavBar() {
   const t = useTranslations("CoreMessages");
   return (
     <>
-      <div className="flex h-full w-[331px] flex-col gap-5 bg-white">
+      <div className="flex h-full w-[331px] flex-col gap-5 bg-white p-5">
         <section className="scrollbar-none scrollbar flex h-full w-full flex-col items-center gap-2 overflow-y-auto rounded-[8px] bg-[var(--surface)] p-7 shadow-md">
-          <Button
+          <Image src="/LogoCentus.png" alt="Logo Centus" width={250} height={50} className="mb-4" />
+
+          {/* <Button
             variant="secondary"
             className="m-4 w-full cursor-pointer rounded-[42px] text-white uppercase hover:bg-[var(--secondary)]"
           >
             <Plus /> {t("CreateArea")}
-          </Button>
+          </Button> */}
           <section className="flex w-full flex-col gap-4">
             {menuSection.map(({Icon, title}) => (
               <NavSection key={title} Icon={Icon} title={title} />
