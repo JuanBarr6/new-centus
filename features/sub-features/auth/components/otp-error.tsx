@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useTranslations } from "next-intl";
 
 import { Button } from "@/features/components/ui/button";
 import { Input } from "@/features/components/ui/input";
@@ -19,14 +20,15 @@ import {
 import { XCircle, X } from "lucide-react";
 import Image from "next/image";
 
-// ✅ Esquema de validación
-const formSchema = z.object({
-  code: z.string().min(4, { message: "El código debe tener mínimo 4 caracteres" }),
-  email: z.string().email("Correo inválido"),
-});
-
 export default function OTPForm() {
   const [showError, setShowError] = useState(true);
+  const t = useTranslations("AuthMessages");
+
+  // ✅ Schema con traducciones dinámicas
+  const formSchema = z.object({
+    code: z.string().min(4, { message: t("errors.codeMin") }),
+    email: z.string().email(t("errors.emailInvalid")),
+  });
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -41,7 +43,6 @@ export default function OTPForm() {
     console.log(values);
   }
 
-  // ✅ Mensaje de error principal
   const firstError =
     form.formState.errors.code?.message ||
     form.formState.errors.email?.message ||
@@ -49,23 +50,17 @@ export default function OTPForm() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-purple-100 to-pink-100 px-4 overflow-x-hidden">
-      {/* Card principal */}
       <div className="flex w-full max-w-6xl flex-col md:flex-row rounded-3xl shadow-lg overflow-hidden bg-white">
         
-        {/* Columna izquierda: Formulario */}
+        {/* Columna izquierda */}
         <div className="flex flex-1 flex-col justify-center px-6 md:px-10 py-12">
-          {/* Logo */}
           <div className="flex items-center gap-2 mb-6">
             <img src="/Logo.svg" alt="CENTUS Logo" className="h-16 w-auto" />
           </div>
 
-          {/* Título */}
-          <h2 className="mb-1 text-xl font-semibold text-gray-800">Código de seguridad</h2>
-          <p className="mb-6 text-sm text-gray-500">
-            Código enviado al correo electrónico. Recuerda revisar la carpeta de correos no deseados o spam
-          </p>
+          <h2 className="mb-1 text-xl font-semibold text-gray-800">{t("title")}</h2>
+          <p className="mb-6 text-sm text-gray-500">{t("paragraph")}</p>
 
-          {/* Formulario */}
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="w-full max-w-sm space-y-4">
               <FormField
@@ -73,9 +68,9 @@ export default function OTPForm() {
                 name="code"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Ingresa aquí el código recibido</FormLabel>
+                    <FormLabel>{t("sendcode")}</FormLabel>
                     <FormControl>
-                      <Input placeholder="Ej: 123456" {...field} />
+                      <Input placeholder="123456" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -87,9 +82,9 @@ export default function OTPForm() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Correo</FormLabel>
+                    <FormLabel>Email</FormLabel>
                     <FormControl>
-                      <Input type="email" placeholder="usuario@ejemplo.com" {...field} />
+                      <Input type="email" placeholder="user@example.com" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -101,18 +96,17 @@ export default function OTPForm() {
                 className="w-20 rounded-full py-1 text-sm font-semibold text-white"
                 style={{ backgroundColor: "var(--secondary)" }}
               >
-                VALIDAR
+                {t("button")}
               </Button>
             </form>
           </Form>
 
-          {/* ✅ Bloque de error como el del profe */}
           {firstError && showError && (
             <div className="mt-6 w-full max-w-sm rounded-md border border-red-500 bg-red-50 p-4 text-sm text-red-700 relative">
               <div className="flex items-start gap-3">
                 <XCircle className="h-5 w-5 text-red-500 mt-0.5" />
                 <div className="flex-1">
-                  <p className="font-semibold">Error Message</p>
+                  <p className="font-semibold">Error</p>
                   <p>{firstError}</p>
                 </div>
                 <button
@@ -126,14 +120,11 @@ export default function OTPForm() {
             </div>
           )}
 
-          {/* Link reenviar */}
           <div className="mt-4 text-sm">
-            <span className="text-gray-500">¿Aún no recibes el código? </span>
-            <button className="text-purple-600 hover:underline">Reenviar ahora</button>
+            <span className="text-gray-500">{t("message")}</span>
           </div>
         </div>
 
-        {/* Columna derecha: Imagen OTP */}
         <div className="flex flex-1 items-center justify-center bg-white">
           <Image
             src="/Fondo_otp.svg"
