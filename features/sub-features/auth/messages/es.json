@@ -2,7 +2,9 @@
   "AuthMessages": {
     "login": "Iniciar sesión",
     "logout": "Cerrar sesión",
+    "subtitle": "Centraliza tus actividades en Centus",
     "signup": "Registrarse",
+    "email": "Correo electrónico",
     "forgotPassword": "¿Olvidaste tu contraseña?",
     "resetPassword": "Restablecer contraseña",
     "Password": "Contraseña"

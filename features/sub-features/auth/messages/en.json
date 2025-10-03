@@ -1,8 +1,10 @@
 {
   "AuthMessages": {
-    "login": "Login",
+    "login": "Log in",
     "logout": "Logout",
+    "subtitle": "Centralize your activities in Centus",
     "signup": "Sign Up",
+    "email": "Email",
     "forgotPassword": "Forgot Password?",
     "resetPassword": "Reset Password",
     "Password": "Password"
