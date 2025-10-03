@@ -6,7 +6,17 @@
     "signup": "Registrarse",
     "email": "Correo electrónico",
     "forgotPassword": "¿Olvidaste tu contraseña?",
+    "title": "Código de seguridad",
+    "paragraph": "Código enviado al correo electrónico. Recuerda revisar la carpeta de correos no deseados o spam",
     "resetPassword": "Restablecer contraseña",
-    "Password": "Contraseña"
+    "sendcode": "Ingresa aquí el código recibido",
+    "button": "Validar",
+    "message": "¿Aún no recibes el código? Reenviar ahora",
+    "Password": "Contraseña",
+    "codereceived": "",
+    "errors": {
+      "codeMin": "El código debe tener mínimo 4 caracteres",
+      "emailInvalid": "Correo inválido"
+    }
   }
 }
