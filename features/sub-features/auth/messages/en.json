@@ -16,7 +16,11 @@
     "codereceived": "",
     "errors": {
       "codeMin": "The code must be at least 4 characters long",
-      "emailInvalid": "Invalid email address"
+      "emailInvalid": "Invalid email address",
+      "errorslogin": {
+        "emailInvalidlogin": "Must be a valid email address",
+        "passwordMinlogin": "Password must be at least 6 characters long"
+      }
     }
   }
 }

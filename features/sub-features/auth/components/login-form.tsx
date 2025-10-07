@@ -8,10 +8,11 @@ import {Input} from "@/features/components/ui/input";
 import {Button} from "@/features/components/ui/button";
 import {Card, CardContent, CardHeader} from "@/features/components/ui/card";
 import {useTranslations} from "next-intl";
+const t = useTranslations("AuthMessages");
 
 const loginSchema = z.object({
-  email: z.string().email("Debe ser un correo válido"),
-  password: z.string().min(6, "La contraseña debe tener mínimo 6 caracteres"),
+  email: z.string().email(t("errors.errorslogin.emailInvalidlogin")),
+  password: z.string().min(6, t("errors.errorslogin.passwordMinlogin")),
 });
 
 type LoginFormData = z.infer<typeof loginSchema>;
@@ -79,7 +80,7 @@ export default function LoginForm() {
                     id="password"
                     type={showPassword ? "text" : "password"}
                     placeholder={t("Password")}
-                    className="w-100 pr-12 text-base"
+                    className="w-116 pr-12 text-base"
                     {...register("password")}
                   />
                   <img

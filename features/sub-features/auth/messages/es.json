@@ -17,6 +17,6 @@
     "errors": {
       "codeMin": "El código debe tener mínimo 4 caracteres",
       "emailInvalid": "Correo inválido"
+      }
     }
   }
-}
