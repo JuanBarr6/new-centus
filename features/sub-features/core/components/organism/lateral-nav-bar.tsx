@@ -32,7 +32,7 @@ export default function LateralNavBar() {
           <div className="m-2 mt-2 w-full border border-[var(--outline)]" />
 
           <section className="flex w-full flex-col gap-4">
-            <TitleSection title="Negociación" />
+            <TitleSection title={t("Negotiation")} />
             {negociationSection.map(({Icon, title}) => (
               <NavSection key={title} Icon={Icon} title={title} />
             ))}
@@ -41,7 +41,7 @@ export default function LateralNavBar() {
           <div className="m-2 mt-2 w-full border border-[var(--outline)]" />
 
           <section className="flex w-full flex-col gap-4">
-            <TitleSection title="Alertas" />
+            <TitleSection title={t("Alerts")} />
             {alertSection.map(({Icon, title}) => (
               <NavSection key={title} Icon={Icon} title={title} />
             ))}

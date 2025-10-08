@@ -3,12 +3,16 @@
     "Settings": "Settings",
     "Modules": "Modules",
     "Negotiations": "Negotiations",
+    "Negotiation": "Negotiation",
     "Integrations": "Integrations",
     "Notifications": "Notifications",
+    "Alerts": "Alerts",
     "User": "User",
     "Areas": "Areas",
     "Roles": "Roles",
     "Managers": "Managers",
-    "CreateArea": "Create area"
+    "CreateArea": "Create area",
+    "Animations": "Animations",
+    "Description": "Description entered for the module in modules."
   }
 }
