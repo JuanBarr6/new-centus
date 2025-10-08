@@ -7,7 +7,7 @@ interface TitleSectionProps {
 export default function TitleSection({/*Icon,*/ title}: TitleSectionProps) {
   return (
     <>
-      <Label className="text-[14px] leading-[20px] font-bold tracking-[0.1px] text-[var(--color-secondary)]">
+      <Label className="text-[14px] leading-[20px] font-bold tracking-[0.1px] text-[var(--primary)]">
         {title}
       </Label>
     </>
