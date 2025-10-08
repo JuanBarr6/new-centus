@@ -14,6 +14,8 @@
   --color-sidebar-accent: var(--sidebar-accent);
   --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
+  --color-m3-dark-primary: var(--m3-dark-primary); /*Nuevo*/
+  --color-sys-dark-on-primary: var(--sys-dark-on-primary); /*Nuevo*/
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar: var(--sidebar);
 
@@ -116,6 +118,8 @@
   --on-primary: oklch(1 0 0); /* #FFFFFF (sinónimo) */
   --primary-container: oklch(0.942 0.032 303.51); /* #E8DDFF */
   --on-primary-container: oklch(0.2435 0.1427 284.57); /* #4C3E76 */
+  --m3-dark-primary: oklch(0.8349 0.0946 298.02); /* #D0BCFF */
+  --sys-dark-on-primary: oklch(0.3362 0.1968 284.68); /* #370095 */
 
   /* Secondary */
   --secondary: oklch(0.5112 0.2178 339.13); /* #AE0B8E */
